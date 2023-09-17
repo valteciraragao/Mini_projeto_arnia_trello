@@ -1,13 +1,12 @@
 import { Outlet } from "react-router-dom"
-import { Container } from "../assets/constant/styles"
 
 
 const BaseLayout = () => <div>
-    <Container>
+    <div>
         <main>
             <Outlet/>
         </main>
-    </Container>
+    </div>
 </div>
 
 export default BaseLayout

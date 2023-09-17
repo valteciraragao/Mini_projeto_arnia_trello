@@ -1,5 +1,6 @@
 import { isAxiosError } from 'axios'
 import api from './config'
+import { toast } from 'react-toastify'
 
 
 export async function PostLoginAccess({ email, password }:LoginParameter){
@@ -16,13 +17,13 @@ export async function PostLoginAccess({ email, password }:LoginParameter){
         if(isAxiosError(error)){
             console.log(error.response?.status)
             if(error.response?.status === 401){
-                throw new Error ("Senha incorreta")
+                toast("Senha incorreta")
             }
             if(error.response?.status === 404){
-                throw new Error ("Usuário não encontrado")
+                toast("Usuário não encontrado")
             }       
         }
-        throw new Error ("Ocorreu um erro em nossos servidores, tente novamente mais tarde")
+        toast("Ocorreu um erro em nossos servidores, tente novamente mais tarde")
     }
 }
 
